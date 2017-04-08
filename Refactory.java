@@ -1,13 +1,10 @@
-package RefactoryDemoPacage;
+package RefactoryDemoPackage;
 
-public class RefactoryDemo {
+import RefactoryDemoPacage.Enumeration;
+import RefactoryDemoPacage.MyCollection;
+import RefactoryDemoPacage.Order;
 
-	private MyCollection _orders = new MyCollection();
-	private String _name = "Customer Name";
-	void printOwing(){package RefactoryDemoPacage;
-
-public class RefactoryDemo {
-
+public class RefactoryDemo2 {
 	private MyCollection _orders = new MyCollection();
 	private String _name = "Customer Name";
 	void printOwing(){
@@ -25,33 +22,14 @@ public class RefactoryDemo {
 		}
 
 		// print details
-		System.out.println("name: " + _name);
-		Syatem.out.println("amount: " + outstanding);
-		System.out.println("Count: " + count)
+		printDetails(outstanding, count);
 	}
 	private void printBanner() {
 		System.out.println("*************************");
 		System.out.println("***** Customer Owes *****");
 		System.out.println("*************************");
 	}
-}
-
-		Enumeration e = _orders.elements();
-		double outstanding = 0.0;
-		int count=0;
-		//print banner
-		System.out.println("*************************");
-		System.out.println("***** Customer Owes *****");
-		System.out.println("*************************");
-
-		//calculate outstanding
-		while (e.hasMoreElements()){
-			Order each = (Order) e.nextElement();
-			outstanding += each.getAmount();
-			count++;
-		}
-
-		// print details
+	private void printDetails(double outstanding, int count) {
 		System.out.println("name: " + _name);
 		Syatem.out.println("amount: " + outstanding);
 		System.out.println("Count: " + count)
