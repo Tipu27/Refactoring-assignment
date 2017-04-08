@@ -1,10 +1,6 @@
-package RefactoryDemoPackage;
+package RefactoryDemoPacage;
 
-import RefactoryDemoPacage.Enumeration;
-import RefactoryDemoPacage.MyCollection;
-import RefactoryDemoPacage.Order;
-
-public class RefactoryDemo2 {
+public class RefactoryDemo3 {
 	private MyCollection _orders = new MyCollection();
 	private String _name = "Customer Name";
 	void printOwing(){
@@ -15,24 +11,27 @@ public class RefactoryDemo2 {
 		printBanner();
 
 		//calculate outstanding
-		while (e.hasMoreElements()){
-			Order each = (Order) e.nextElement();
-			outstanding += each.getAmount();
-			count++;
-		}
+		outstanding = calculateOutstanding(e, outstanding);
 
 		// print details
-		printDetails(outstanding, count);
+		printDetails(outstanding);
+	}
+	private void printDetails(double outstanding) {
+		System.out.println("name: " + _name);
+		Syatem.out.println("amount: " + outstanding);
+		//System.out.println("Count: " + count)
 	}
 	private void printBanner() {
 		System.out.println("*************************");
 		System.out.println("***** Customer Owes *****");
 		System.out.println("*************************");
 	}
-	private void printDetails(double outstanding, int count) {
-		System.out.println("name: " + _name);
-		Syatem.out.println("amount: " + outstanding);
-		System.out.println("Count: " + count)
+	private double calculateOutstanding(Enumeration e, double outstanding) {
+		while (e.hasMoreElements()){
+			Order each = (Order) e.nextElement();
+			outstanding += each.getAmount();
+			//count++;
+		}
+		return outstanding;
 	}
-
 }
